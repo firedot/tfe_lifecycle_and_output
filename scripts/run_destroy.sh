@@ -1,19 +1,11 @@
 #!/usr/bin/env bash
 
-
-# The organization name is passed as a first argument to the script
-# The workspace name is passaed as a second argument to the script
-
-# The following is added for debugging purposes. Will be removed in the final version
-echo -e "Your Configuration ID is: \n ${CONF} \n"
-
-
 # Create a payload file
 
 INPUT_FILE="/vagrant/templates/payload_template"
 OUTPUT_FILE="/tmp/payload.json"
 
-cat $INPUT_FILE | sed "s/WSPACE/"${WSPACE_ID}"/g; s/CONF/"${CONF}"/g" > ${OUTPUT_FILE}
+cat $INPUT_FILE | sed "s/WSPACE/"${WSPACE_ID}"/g; s/CONF/"${CONF}"/g; s/false/true/g" > ${OUTPUT_FILE}
 
 # The following block of code is for debugging purposes only, it will be removed in the final version
 #cat ${OUTPUT_FILE} | grep "${WSPACE_ID}" > /dev/null
@@ -59,3 +51,4 @@ curl \
 
 
 echo -e "\n OPERATION COMPLETE \n"
+
