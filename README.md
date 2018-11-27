@@ -62,6 +62,8 @@ vagrant ssh
 
 - You should see a screen as the one in the image below
 
+![Alt text](pics/screen_ssh.png?raw=true "Screen after vagrant ssh")
+
 
 - Run the following command to execute the script which will assist you in manipulating TFE trough its API
 
