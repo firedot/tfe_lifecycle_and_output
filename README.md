@@ -22,3 +22,4 @@ A script that manages the lifecycle of a run.
   - Presents a list with procedures to choose from including but not limited to:
     - Create a run
     - Apply 
+    - Get the value of ```CONFIRM_DESTROY``` env var in the TFE Worskpace
