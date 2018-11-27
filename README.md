@@ -4,8 +4,6 @@ A script that manages the lifecycle of a run.
 
 # TO-DO
 
-- Create a ```Vagrantfile```
-- Create a provisioning script that installs ```curl``` and ```jq```
 - Create a script that: 
   - Creates a variable from user input regarding:
     - Exports the API Token needed to manage TFE
@@ -20,3 +18,5 @@ A script that manages the lifecycle of a run.
     
 # DONE
   
+- Create a ```Vagrantfile```
+- Create a provisioning script that installs ```curl``` and ```jq```
