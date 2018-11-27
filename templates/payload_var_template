@@ -1,0 +1,20 @@
+{
+  "data": {
+    "type":"vars",
+    "attributes": {
+      "key":"CONFIRM_DESTROY",
+      "value":"1",
+      "category":"env",
+      "hcl":false,
+      "sensitive":false
+    },
+    "relationships": {
+      "workspace": {
+        "data": {
+          "id":"WSPACE",
+          "type":"workspaces"
+        }
+      }
+    }
+  }
+}
