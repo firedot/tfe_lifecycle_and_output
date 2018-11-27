@@ -5,10 +5,6 @@ A script that manages the lifecycle of a run.
 # TO-DO
 
 - Create a script that: 
-  - Creates a variable from user input regarding:
-    - Exports the API Token needed to manage TFE
-    - Organization name
-    - Workspace name
   - Presents a list with procedures to choose from including but not limited to:
     - Create a run
     - Apply 
@@ -20,3 +16,8 @@ A script that manages the lifecycle of a run.
   
 - Create a ```Vagrantfile```
 - Create a provisioning script that installs ```curl``` and ```jq```
+- Create a script that: 
+  - Creates a variable from user input regarding:
+    - Exports the API Token needed to manage TFE
+    - Organization name
+    - Workspace name
