@@ -12,7 +12,12 @@ read -p 'Please enter your API user token: ' TOKEN
 export ORG_NAME=${ORG_NAME}
 export WSPACE_NAME=${WSPACE_NAME}
 export TOKEN=${TOKEN}
+
+# Variable to shorten URLs
 export TFE=https://app.terraform.io/api/v2
+
+# The following block of code will etch your workspace ID from TFE
+
 export WSPACE_ID="$(curl \
   --header "Authorization: Bearer ${TOKEN}" \
   --header "Content-Type: application/vnd.api+json" \
@@ -36,6 +41,7 @@ export CONF="$(curl \
   --header "Content-Type: application/vnd.api+json" \
   ${TFE}/runs/${CURRENT_RUN}/configuration-version 2>/dev/null | jq '.data | .id' | tr -d \")"
 
+# The following block of code will create an operations options menu
 
 echo -e "\nPlease choose an operation from the list below: \n \
     1) Run and apply operation \n \
@@ -46,10 +52,11 @@ echo -e "\nPlease choose an operation from the list below: \n \
 \n \
     Please enter a number in the range 1-4 that corresponds to your choice or enter 5 to exit \n \
    "
-read -p 'Please choose option 1-4, or 5 to exit: ' CHOICE
-while true; do
+# The following block of code reads user input and runs an operation according to the selected option
+
+while read -p 'Please choose option 1-4, or 5 to exit: ' CHOICE; do
     if [ ${CHOICE} == 1 ]; then
-         echo -e "\nYou chose a run and apply operationi \n"
+         echo -e "\nYou chose a run and apply operation \n"
          bash /vagrant/scripts/run_plan_apply.sh
          break
     elif [ ${CHOICE} == 2 ]; then
