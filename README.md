@@ -16,6 +16,7 @@ A script that manages the lifecycle of a run.
 - Create a script that: 
   - Presents a list with procedures to choose from including but not limited to:
     - Tries to read Outputs from a previous run
+  - Enable named arguments to be used instead of options menu
 - README with instructions
     
 # DONE
