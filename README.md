@@ -13,7 +13,7 @@ A script that manages the lifecycle of a run.
 
 # TO-DO
 
-- Create a script that: 
+- Edit the script to: 
   - Enable named arguments to be used instead of options menu
   - Create an if statement that checks the status of the apply/destroy operation after completion 
     (If the status is null, the operation is successful; If the status is i.e. 409 during an Apply operation, this means
