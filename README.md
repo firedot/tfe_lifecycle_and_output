@@ -17,7 +17,7 @@ A script that manages the lifecycle of a run.
   - Enable named arguments to be used instead of options menu
   - Create an if statement that checks the status of the apply/destroy operation after completion 
     (If the status is null, the operation is successful; If the status is i.e. 409 during an Apply operation, this means
-     that the infrastructure is already provisioned and there were bi changes to be made)
+     that the infrastructure is already provisioned and there were no changes to be made)
 - README with instructions
     
 # DONE
