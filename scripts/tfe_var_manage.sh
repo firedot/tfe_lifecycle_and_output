@@ -2,13 +2,18 @@
 
 # The following  block of code checks what variables are enabled for TFE Workspace
 
+# Check if CONFIRM_DESTROY environmental variable is enabled in TFE
 CONFIRM_DESTROY_VALUE="$(curl \
   --header "Authorization: Bearer $TOKEN" \
   --header "Content-Type: application/vnd.api+json" \
   "${TFE}/vars?filter%5Borganization%5D%5Bname%5D=${ORG_NAME}&filter%5Bworkspace%5D%5Bname%5D=${WSPACE_NAME}" 2>/dev/null | \
   jq ' .data | .[] | select(.attributes.key == "CONFIRM_DESTROY") | .attributes.value' \
 )"
-echo ${CONFIRM_DESTROY_VALUE}
+
+#The following line is added for debugging purposes
+#echo ${CONFIRM_DESTROY_VALUE}
+
+# The following block of provides option to the user to enable the CONFIRM_DESTROY environmental variable in TFE
 if [ -z ${CONFIRM_DESTROY_VALUE} ]; then
     echo -e "\nQueue destroy option is disabled\n"
     while read -p "Do you want to enable it: Y/N " ANSWER; do

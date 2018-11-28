@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
 
-# Create a payload file
+# Create a payload file which will allow for a destroy plan to be queued
 
 INPUT_FILE="/vagrant/templates/payload_template"
 OUTPUT_FILE="/tmp/payload.json"
 
 cat $INPUT_FILE | sed "s/WSPACE/"${WSPACE_ID}"/g; s/CONF/"${CONF}"/g; s/false/true/g" > ${OUTPUT_FILE}
 
-# The following block of code is for debugging purposes only, it will be removed in the final version
-#cat ${OUTPUT_FILE} | grep "${WSPACE_ID}" > /dev/null
+# The following block of code checks if your payload file is properly created
+# If there is a problem with the payload file, the program will exit
 
 if cat ${OUTPUT_FILE} | grep "${WSPACE_ID}" > /dev/null; then
     echo -e "SUCCESS: Your payload file was created \n"
 else
     echo -e "FAILURE: Something went wrong \n"
+    echo -e "Your payload file was not created successfuly"
+    echo -e "Exiting..."
+    exit 1
 fi
 
 # The following block of code is going to create a new run within your TFE Workspace
@@ -28,12 +31,14 @@ curl \
 NEW_TFE_RUN="$(cat /tmp/new_tfe_run_id)"
 
 # The following is added for debugging purposes. Will be removed in the final version
-echo -e "Your New Run ID is: \n "${NEW_TFE_RUN}" \n"
+#echo -e "Your New Run ID is: \n "${NEW_TFE_RUN}" \n"
 
 # The following block of code will apply your last created run
 
-# NOTE!!! There should be some check to verify that the previous operation (plan) has ended.
-# Otherwise the apply operation will not run.
+: ' NOTE!!! There should be some check to verify that the previous operation (plan) has ended.
+ Otherwise the apply operation will not run.
+ As a workaround, the following lines were added, but may not work if the infrastructure
+being provisioned is larger or for some reason it needs more than 1 minute to be properly planned. !!!NOTE'
 
 echo "waiting 1 minute for the plan to finish"
 for x in {1..30}; do

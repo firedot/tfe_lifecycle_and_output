@@ -40,8 +40,10 @@ echo -e "Your New Run ID is: \n "${NEW_TFE_RUN}" \n"
 
 # The following block of code will apply your last created run
 
-# NOTE!!! There should be some check to verify that the previous operation (plan) has ended.
-# Otherwise the apply operation will not run.
+: ' NOTE!!! There should be some check to verify that the previous operation (plan) has ended.
+ Otherwise the apply operation will not run.
+ As a workaround, the following lines were added, but may not work if the infrastructure
+being provisioned is larger or for some reason it needs more than 1 minute to be properly planned. !!!NOTE'
 
 echo "waiting 1 minute for the plan to finish"
 for x in {1..30}; do
