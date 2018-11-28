@@ -14,8 +14,6 @@ A script that manages the lifecycle of a run.
 # TO-DO
 
 - Create a script that: 
-  - Presents a list with procedures to choose from including but not limited to:
-    - Tries to read Outputs from a previous run
   - Enable named arguments to be used instead of options menu
 - README with instructions
     
@@ -34,6 +32,7 @@ A script that manages the lifecycle of a run.
     - Get the value of ```CONFIRM_DESTROY``` env var in the TFE Worskpace
     - Set Environmental variables in TFE ( such as ```CONFIRM_DESTROY=1``` )
     - Destroy
+    - Tries to read Outputs from a previous run
 
 # How to use this repository
 
