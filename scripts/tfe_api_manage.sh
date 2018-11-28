@@ -58,6 +58,7 @@ while true; do
          break
     elif [ ${CHOICE} == 3 ]; then
          echo -e "\nYou chose to retrieve the outputs from your latest run\n"
+         bash /vagrant/scripts/retrieve_output.sh
          break
     elif [ ${CHOICE} == 4 ]; then
          echo -e "\nYou chose to run a destroy operation\n"
